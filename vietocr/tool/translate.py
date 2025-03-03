@@ -36,7 +36,7 @@ def batch_translate_beam_search(
             )
             sents.append(sent)
     
-    sents = np.asarray(sents)
+    #sents = np.asarray(sents)
 
     return sents
 
