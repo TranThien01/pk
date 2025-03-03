@@ -37,6 +37,16 @@ def batch_translate_beam_search(
             sents.append(sent)
     
     #sents = np.asarray(sents)
+    # Tìm độ dài tối đa
+    max_len = max(len(sent) for sent in sents)
+    
+    # Thêm padding để đảm bảo tất cả các câu có cùng độ dài
+    padded_sents = []
+    for sent in sents:
+        padded_sent = sent + [eos_token] * (max_len - len(sent))
+        padded_sents.append(padded_sent)
+    
+    sents = np.asarray(padded_sents)
 
     return sents
 
